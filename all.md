@@ -1,6 +1,6 @@
 ---
 title: all
-layout: redirects.njk
+layout: all.njk
 permalink: all/index.html
 ---
 

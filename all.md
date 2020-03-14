@@ -1,7 +1,7 @@
 ---
 title: all
 layout: redirects.njk
-permalink: all
+permalink: all/index.html
 ---
 
 

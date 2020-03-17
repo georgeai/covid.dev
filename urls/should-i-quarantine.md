@@ -1,0 +1,4 @@
+---
+url: https://shouldiquarantine.com
+---
+

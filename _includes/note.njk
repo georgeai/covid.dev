@@ -32,14 +32,14 @@ footer {
   border-top: 1px solid #ccc;
 }
 
-p.teeny {
-  font-size: 0.5em;
-  font-family: 'Inconsolata', monospace;
-}
-
 p.tiny {
   font-size: 0.6em;
   font-family: 'Inconsolata', monospace;
+}
+
+p.note {
+  font-size: 1.0em;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a:link {
@@ -56,8 +56,18 @@ a:hover {
 
 <body>
   <main>
-  <h1><center><span style="font-weight:normal">{{ title or pkg.name  }}</span></center></h1>
-  {{ content | safe }}
+  <h1>
+  <center>
+  <img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" />
+  </center>
+  </h1>
+  <h1><center><span style="font-weight:normal">{{ page.fileSlug | replace("-", " ") }}</span></center></h1>
+  <center><p class="tiny">{{ page.date }}</p></center>
+  <p class="note">
+
+  {{ note }}
+
+  </p>
   <footer>
     <center>
     <p>

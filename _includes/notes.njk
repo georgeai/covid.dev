@@ -1,0 +1,9 @@
+---
+layout: notes-default.njk
+---
+
+{%- for note in collections.notes | reverse -%}
+    <p><a href="{{ note.url }}" target="_blank">{{ note.fileSlug | replace("-", " ") }}</a></p>
+    <p class="teeny">{{ note.date }}</p>
+    <p class="tiny">{{ note.data.note  }}</p>
+{% endfor %}

@@ -18,7 +18,9 @@ else
     read -p "Enter the note: " note
 fi
 
-Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
+#Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
+#Title=`echo $shorty | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
+Title=`echo $shorty | tr '[:punct:]' ' ' | awk '{$1=$1};1' | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
 for word in $Title
 do
   dashedTitle=${dashedTitle}-${word}

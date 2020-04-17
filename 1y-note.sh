@@ -18,8 +18,13 @@ else
     read -p "Enter the note: " note
 fi
 
+Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
+for word in $Title
+do
+  dashedTitle=${dashedTitle}-${word}
+done
 # create note file
-filename="$shorty.md"
+filename="`date +%Y-%m-%d`${dashedTitle}.md"
 touch $filename
 echo "---" >> $filename
 echo "note: ${note}" >> $filename

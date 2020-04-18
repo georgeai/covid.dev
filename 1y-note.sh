@@ -36,6 +36,10 @@ echo "" >> $filename
 # edit file
 vi $filename
 
+# pause before add, commit, publish
+echo "Press <enter> to publish"
+read
+
 # commit and publish
 git add $filename
 git commit -m "new 1y note: $site/$shorty -> $note"

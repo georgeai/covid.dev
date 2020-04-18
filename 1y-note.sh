@@ -8,14 +8,14 @@ if [ -n "$1" ]
 then
     shorty=$1
 else
-    read -p "Enter the shorty: " shorty
+    read -p "Title: " shorty
 fi
 
 if [ -n "$2" ]
 then
     note=$2
 else
-    read -p "Enter the note: " note
+    read -p "Note: " note
 fi
 
 #Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`

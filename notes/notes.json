@@ -1,5 +1,5 @@
 {
   "tags": "notes",
-  "layout": "note",
+  "layout": "notes-note.njk",
   "permalink": "notes/{{ page.date | date: '%Y-%m-%d' }}-{{ page.fileSlug }}/"
 }

@@ -1,7 +1,7 @@
 ---
 title: notes
-layout: notes.njk
-permalink: notes/index.html
+layout: notes-list.njk
+permalink: gnotes/index.html
 ---
 
 

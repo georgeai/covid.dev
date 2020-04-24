@@ -1,4 +1,4 @@
 ---
-layout: default.njk
+layout: index.njk
 ---
 

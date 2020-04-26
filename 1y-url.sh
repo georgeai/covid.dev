@@ -34,8 +34,8 @@ echo "" >> $filename
 while true; do
     read -p "Publish? N to add [skip ci] in git commit message: " yn
     case $yn in
-        [Yy]* ) git add $filename ; git commit -m "new 1y url: $site/$shorty -> $url" ; git push -u origin master ; break ;;
-        [Nn]* ) git add $filename ; git commit -m "new 1y url: $site/$shorty -> $url [skip ci]" ; git push -u origin master ; break ;;
+        [Yy]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url" ; git push -u origin master ; break ;;
+        [Nn]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url [skip ci]" ; git push -u origin master ; break ;;
         * ) echo "Please answer yes or no.";;
     esac
 done

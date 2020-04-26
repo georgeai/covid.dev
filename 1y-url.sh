@@ -29,9 +29,21 @@ echo "" >> $filename
 # edit file
 #vi $filename
 
+# Publish? N to add [skip ci] in git commit message, so it won't deploy
+
+while true; do
+    read -p "Publish? N to add [skip ci] in git commit message: " yn
+    case $yn in
+        [Yy]* ) git add $filename ; git commit -m "new 1y url: $site/$shorty -> $url" ; git push -u origin master ; break ;;
+        [Nn]* ) git add $filename ; git commit -m "new 1y url: $site/$shorty -> $url [skip ci]" ; git push -u origin master ; break ;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+## pause before add, commit, publish
 # commit and publish
-git add $filename
-git commit -m "new 1y: $site/$shorty -> $url"
-git push -u origin master
+#git add $filename
+#git commit -m "new 1y: $site/$shorty -> $url"
+#git push -u origin master
 
 

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Architects+Daughter|Barlow+Condensed|Caveat|Inconsolata|Montserrat|Overlock&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Alegreya+Sans+SC|Architects+Daughter|Barlow+Condensed|Caveat|Inconsolata|Montserrat|Overlock&display=swap" rel="stylesheet">
 <title>{{ title or pkg.name }}</title>
 <style>
 body {
@@ -46,9 +46,19 @@ p.tiny {
 }
 
 p.note {
-  font-size: 1.0em;
+  font-size: 1.3em;
   font-family: 'Architects Daughter', cursive;
   /* font-family: 'Montserrat', sans-serif; */
+}
+
+p.smallcaps {
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+p {
+  font-size: 1.0em;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .noteTitle {
@@ -91,7 +101,7 @@ main {
   background: linear-gradient(to bottom, var(--gradDark), var(--gradLight));
   padding: 120px 40px 40px 40px;
   min-height: 100vh;
-  text-align: center;
+  text-align: left;
 }
 
 .wrapper {
@@ -202,11 +212,11 @@ main {
   <center>
   <img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" />
   <h1><span style="font-weight:normal">{{ page.fileSlug | replace("-", " ") }}</span></h1>
-  {{ content | safe }}
   </center>
+  {{ content | safe }}
   <footer>
     <center>
-    <p>
+    <p class="smallcaps">
     <a href="/"
     <b>
     <font color="#0085C7">&copy;</font>

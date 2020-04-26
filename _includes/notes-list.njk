@@ -2,10 +2,12 @@
 layout: notes-default.njk
 ---
 
+<center>
 {%- for note in collections.notes | reverse -%}
-    <p><span class='noteTitle'>
+    <p class="smallcaps"><span class='noteTitle'>
       <a href="{{ note.url }}" >{{ note.fileSlug | replace("-", " ") }}</a>
     </span></p>
     <p class="teeny">{{ note.date }}</p>
     <p class="tiny">{{ note.data.note  }}</p>
 {% endfor %}
+</center>

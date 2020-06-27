@@ -2,8 +2,13 @@
 layout: default.njk
 ---
 
+  <center>
+  <img width="200" src="https://source.unsplash.com/random/200/?{{ page.fileSlug | replace("-", ",") }}" />
+  <h1><span style="font-weight:normal">{{ page.fileSlug | replace("-", " ") }}</span></h1>
+
   {%- for url in collections.urls -%}
     <br><a href="{{ url.data.url }}" target="_blank">{{ url.fileSlug }}</a>
       <p class="tiny">&nbsp; {{ url.data.url  }}</p>
   {% endfor %}
 
+  </center>

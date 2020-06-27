@@ -1,80 +1,10 @@
-<html>
+---
+layout: default.njk
+---
 
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Architects+Daughter|Barlow+Condensed|Caveat|Inconsolata|Montserrat|Overlock&display=swap" rel="stylesheet">
-<title>{{ title or pkg.name }}</title>
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: 'Alegreya Sans SC', sans-serif;
-  /* font-family: 'Alegreya Sans SC', sans-serif; */
-  /* font-family: 'Caveat', cursive; */
-  /* font-family: 'Montserrat', sans-serif; */
-  /* font-family: 'Architects Daughter', cursive; */
-  /* font-family: 'Inconsolata', monospace; */
-  /* font-family: system-ui, sans-serif; */
-}
-
-body > * {
-  max-width: 22em;
-}
-
-footer {
-  margin: 3em 0 0;
-  border-top: 1px solid #ccc;
-}
-
-p.tiny {
-  font-size: 0.6em;
-  font-family: 'Inconsolata', monospace;
-}
-
-a:link {
-  color: #888;
-  text-decoration: none;
-            
-  }
-a:hover {
-  text-decoration: underline;
-      
-}
-</style>
-</head>
-
-<body>
-  <main>
-  <h1>
-  <img width="400" src="https://source.unsplash.com/random/600/?{{ pkg.description | replace(".", ",")}}" />
-  </h1>
-  <h1><center><span style="font-weight:normal">{{ title or pkg.name  }}</span></center></h1>
+  <center>
+  <img width="200" src="https://source.unsplash.com/random/200/?{{ page.fileSlug | replace("-", ",") }}" />
+  <h1><span style="font-weight:normal">{{ page.fileSlug | replace("-", " ") }}</span></h1>
   {{ content | safe }}
-  <footer>
-    <center>
-    <p>
-    <b>
-    <font color="#0085C7">&copy;</font>
-    <font color="#F4C300">2</font>
-    <font color="#000000">0</font>
-    <font color="#009F3D">2</font>
-    <font color="#DF0024">1</font>
-    </b>
-    </p>
-    <br/>
-    <br/>
-    <p class='tiny'>
-      <a href="mailto:hey@{{ pkg.description }}" target="_blank">hey@{{ pkg.description }}</a>
-    </p>
-    </center>
-   </footer>
-  </main>
-</body>
+  </center>
 
-</html>

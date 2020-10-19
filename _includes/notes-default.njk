@@ -24,6 +24,30 @@ body {
   /* font-family: system-ui, sans-serif; */
 }
 
+/* style from: https://evuez.github.io/styles.css */
+
+:root {
+  --grey: #eaf2ef;
+  --black: #050505;
+  --white: #fff;
+  --primary: #ff0077;
+  --secondary: #f7b2bd;
+}
+* {
+/*  margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
+}
+body {
+  background-color: var(--black);
+  color: var(--grey);
+/*  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6rem; */
+}
+
 body > * {
   /*
   max-width: 22em;
@@ -101,12 +125,15 @@ body {
 label,
 main {
   background: var(--bg, white);
-  color: var(--text, black);
+  color: var(--text, gray);
+  /* color: var(--text, black); */
 }
 
 main {
-  --gradDark: hsl(144, 100%, 89%);
-  --gradLight: hsl(42, 94%, 76%);
+  --gradDark: hsl(265, 1%, 3%);
+  --gradLight: hsl(265, 3%, 9%);
+  /*--gradDark: hsl(144, 100%, 89%);
+  --gradLight: hsl(42, 94%, 76%); */
   background: linear-gradient(to bottom, var(--gradDark), var(--gradLight));
   padding: 120px 40px 40px 40px;
   min-height: 100vh;
@@ -124,8 +151,8 @@ main {
 }
 
 .theme-switch__input:checked ~ main {
-  --gradDark: hsl(198, 44%, 11%);
-  --gradLight: hsl(198, 39%, 29%);
+  --gradDark: hsl(198, 24%, 11%);
+  --gradLight: hsl(198, 19%, 19%);
 }
 
 .theme-switch__input,

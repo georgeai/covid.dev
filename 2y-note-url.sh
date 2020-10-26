@@ -48,11 +48,11 @@ vi $filename
 # site name = dir name
 site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
 
-url="https://"$site"/notes/"$dateDashedTitle
-shorty_url="https://"$site"/"$shorty
-echo "\n\n"
+url="https://$site/notes/$dateDashedTitle"
+shorty_url="https://$site/$shorty"
+echo 
 echo $shorty_url" -> "$url
-echo "\n\n"
+echo 
 
 # Publish? N to add [skip ci] in git commit message, so it won't deploy
 
@@ -68,8 +68,8 @@ echo "" >> $urls_filename
 while true; do
     read -p "Publish? N to add [skip ci] in git commit message: " yn
     case $yn in
-        [Yy]* ) git add $filename $urls_filename; git commit -m "new 1y note + shorty: /$dateDashedTitle -> $note" ; git push -u origin master ; break ;;
-        [Nn]* ) git add $filename $urls_filename; git commit -m "new 1y note + shorty: /$dateDashedTitle -> $note [skip ci]" ; git push -u origin master ; break ;;
+        [Yy]* ) git add $filename $urls_filename; git commit -m "new 1y note : $url -> $note and new 1y shorty: $shorty_url"; git push -u origin master ; break ;;
+        [Nn]* ) git add $filename $urls_filename; git commit -m "new 1y note : $url -> $note and new 1y shorty: $shorty_url [skip ci]" ; git push -u origin master ; break ;;
         * ) echo "Please answer yes or no.";;
     esac
 done

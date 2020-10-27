@@ -26,7 +26,8 @@ do
   dashedTitle=${dashedTitle}-${word}
 done
 # create note file
-filename="`date +%Y-%m-%d`${dashedTitle}.md"
+dateDashedTitle="`date +%Y-%m-%d`${dashedTitle}"
+filename=$dateDashedTitle".md"
 touch $filename
 echo "---" >> $filename
 echo "note: ${note}" >> $filename
@@ -37,13 +38,24 @@ echo "" >> $filename
 vi $filename
 echo
 
+# site name = dir name
+site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
+
+url="https://$site/notes/$dateDashedTitle"
+#shorty_url="https://"$site"/"$shorty
+echo 
+echo $url
+# echo $shorty_url" -> "$url
+echo 
+
+# Publish? N to add [skip ci] in git commit message, so it won't deploy
 # Publish? N to add [skip ci] in git commit message, so it won't deploy
 
 while true; do
     read -p "Publish? N to add [skip ci] in git commit message: " yn
     case $yn in
-        [Yy]* ) git add $filename ; git commit -m "new 1y note: /$dashedTitle -> $note" ; git push -u origin master ; break ;;
-        [Nn]* ) git add $filename ; git commit -m "new 1y note: /$dashedTitle -> $note [skip ci]" ; git push -u origin master ; break ;;
+        [Yy]* ) git add $filename; git commit -m "new 1y note : $url -> $note"; git push -u origin master ; break ;;
+        [Nn]* ) git add $filename; git commit -m "new 1y note : $url -> $note [skip ci]" ; git push -u origin master ; break ;;
         * ) echo "Please answer yes or no.";;
     esac
 done

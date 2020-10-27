@@ -21,7 +21,7 @@ fi
 # create url file
 filename="$shorty.md"
 touch $filename
-echo "---" >> $filename
+echo "---" > $filename
 echo "url: ${url}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
@@ -29,13 +29,24 @@ echo "" >> $filename
 # edit file
 #vi $filename
 
+# site name = dir name
+site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
+
+#url="https://"$site"/notes/"$dateDashedTitle
+shorty_url="https://$site/$shorty"
+echo 
+echo "$shorty_url -> $url"
+echo 
+
 # Publish? N to add [skip ci] in git commit message, so it won't deploy
 
 while true; do
     read -p "Publish? N to add [skip ci] in git commit message: " yn
     case $yn in
-        [Yy]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url" ; git push -u origin master ; break ;;
-        [Nn]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url [skip ci]" ; git push -u origin master ; break ;;
+        [Yy]* ) git add $filename; git commit -m "new 1y shorty: $shorty_url"; git push -u origin master ; break ;;
+        [Nn]* ) git add $filename; git commit -m "new 1y shorty: $shorty_url [skip ci]" ; git push -u origin master ; break ;;
+        #[Yy]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url" ; git push -u origin master ; break ;;
+        #[Nn]* ) git add $filename ; git commit -m "new 1y url: /$shorty -> $url [skip ci]" ; git push -u origin master ; break ;;
         * ) echo "Please answer yes or no.";;
     esac
 done

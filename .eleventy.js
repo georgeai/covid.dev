@@ -1,4 +1,4 @@
-// const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
+const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 // const htmlmin = require('html-minifier')
 // const xmlPlugin = require('eleventy-xml-plugin')
 // const nbspFilter = require('eleventy-nbsp-filter')
@@ -6,7 +6,7 @@
 module.exports = function(eleventyConfig) {
   /* FILTERS AND PLUGINS */
   // eleventyConfig.addPlugin(xmlPlugin)
-  // eleventyConfig.addPlugin(pluginSyntaxHighlight)
+  eleventyConfig.addPlugin(pluginSyntaxHighlight)
   // eleventyConfig.addFilter('nbsp', nbspFilter(2, 12))
 
   /* COLLECTIONS */

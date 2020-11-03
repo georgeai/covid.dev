@@ -39,6 +39,7 @@ filename=$dateDashedTitle".md"
 #filename="`date +%Y-%m-%d`${dashedTitle}.md"
 touch $filename
 echo "---" >> $filename
+echo "title: ${title}" >> $filename
 echo "note: ${note}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
@@ -55,8 +56,6 @@ echo
 echo $shorty_url" -> "$url
 echo 
 
-# Publish? N to add [skip ci] in git commit message, so it won't deploy
-
 # create url file
 shorty_filename="$shorty.md"
 urls_filename=../urls/$shorty_filename
@@ -66,6 +65,8 @@ echo "url: ${rel_url}" >> $urls_filename
 #echo "url: ${url}" >> $urls_filename
 echo "---" >> $urls_filename
 echo "" >> $urls_filename
+
+# Publish? N to add [skip ci] in git commit message, so it won't deploy
 
 while true; do
     read -p "Publish? N to add [skip ci] in git commit message: " yn

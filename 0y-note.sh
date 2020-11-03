@@ -6,9 +6,9 @@ site="site"
 
 if [ -n "$1" ]
 then
-    shorty=$1
+    title=$1
 else
-    read -p "Title: " shorty
+    read -p "Title: " title
 fi
 
 if [ -n "$2" ]
@@ -20,7 +20,7 @@ fi
 
 #Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
 #Title=`echo $shorty | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
-Title=`echo $shorty | tr '[:punct:]' ' ' | awk '{$1=$1};1' | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
+Title=`echo $title | tr '[:punct:]' ' ' | awk '{$1=$1};1' | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
 for word in $Title
 do
   dashedTitle=${dashedTitle}-${word}
@@ -30,6 +30,7 @@ dateDashedTitle="`date +%Y-%m-%d`${dashedTitle}"
 filename=$dateDashedTitle".md"
 touch $filename
 echo "---" >> $filename
+echo "title: ${title}" >> $filename
 echo "note: ${note}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename

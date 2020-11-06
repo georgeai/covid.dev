@@ -43,9 +43,12 @@ echo "title: ${title}" >> $filename
 echo "note: ${note}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
+echo "" >> $filename
 
 # edit file
-vi $filename
+vi +6 $filename
+echo
+
 # site name = dir name
 site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
 

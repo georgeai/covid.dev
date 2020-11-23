@@ -1,0 +1,13 @@
+---
+layout: holidays-list-default.njk
+---
+
+<center>
+{%- for holiday in collections.holidays | reverse -%}
+    <p class="smallcaps"><span class='noteTitle'>
+      <a href="{{ holiday.url }}" >{{ holiday.data.title or holiday.fileSlug | replace("-", " ") }}</a>
+    </span></p>
+    <p class="teeny">{{ holiday.date }}</p>
+    <p class="tiny">{{ holiday.data.note  }}</p>
+{% endfor %}
+</center>

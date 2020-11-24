@@ -57,7 +57,7 @@ module.exports = function(eleventyConfig) {
     level: [2, 3, 4]
   }
   const markdownLib = markdownIt(markdownItOptions)
-    .use(markdownItAnchor, markdownItAnchorOptions)
+  //  .use(markdownItAnchor, markdownItAnchorOptions)
     .use(markdownItEmoji)
   eleventyConfig.setLibrary('md', markdownLib)
 

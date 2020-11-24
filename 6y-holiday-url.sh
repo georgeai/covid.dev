@@ -71,7 +71,7 @@ echo
 shorty_filename="$shorty.md"
 urls_filename=../urls/$shorty_filename
 touch $urls_filename
-echo "---" >> $urls_filename
+echo "---" > $urls_filename
 echo "url: ${rel_url}" >> $urls_filename
 #echo "url: ${url}" >> $urls_filename
 echo "---" >> $urls_filename

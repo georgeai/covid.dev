@@ -53,7 +53,7 @@ rsync -avP --relative $shorty_file_path $note_file_path ../$to_site/
 #rsync -avP "$press_base_dir/$from_site/notes/$note_file $press_base_dir/$to_site/notes/"
 set +x
 
-url="https://$to_site/holidays/${rel_note_url:1}"
+url="https://$to_site/${rel_note_url:1}"
 shorty_url="https://$to_site/$shorty"
 echo 
 echo $shorty_url" -> "$url

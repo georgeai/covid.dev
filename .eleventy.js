@@ -42,27 +42,27 @@ module.exports = function(eleventyConfig) {
 
   /* MARKDOWN */
   const markdownIt = require('markdown-it')
-  // const markdownItEmoji = require('markdown-it-emoji')
-  // const markdownItAnchor = require('markdown-it-anchor')
+  const markdownItEmoji = require('markdown-it-emoji')
+  const markdownItAnchor = require('markdown-it-anchor')
   const markdownItOptions = {
     html: true,
     breaks: true,
     linkify: true
   }
-  // const markdownItAnchorOptions = {
-  //   permalink: true,
-  //   permalinkSymbol: '#',
-  //   permalinkBefore: true,
-  //   permalinkClass: 'heading--anchor',
-  //   level: [2, 3, 4]
-  // }
+  const markdownItAnchorOptions = {
+    permalink: true,
+    permalinkSymbol: '#',
+    permalinkBefore: true,
+    permalinkClass: 'heading--anchor',
+    level: [2, 3, 4]
+  }
   const markdownLib = markdownIt(markdownItOptions)
-  //   .use(markdownItAnchor, markdownItAnchorOptions)
-  //   .use(markdownItEmoji)
+    .use(markdownItAnchor, markdownItAnchorOptions)
+    .use(markdownItEmoji)
   eleventyConfig.setLibrary('md', markdownLib)
 
   /* COPY */
-  // eleventyConfig.addPassthroughCopy('assets')
+  eleventyConfig.addPassthroughCopy('assets')
   // eleventyConfig.addPassthroughCopy('robots.txt')
 
   /* HTML */

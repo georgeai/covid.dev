@@ -8,13 +8,13 @@
 <title>{{ title or pkg.name }}</title>
 <style>
 body {
-  background-image: linear-gradient(rgba(17,34,51,0.62),rgba(17,34,51,0.85)),  url("{{ imgurl }}");
+  background-image: linear-gradient(rgba(17,34,51,0.62),rgba(17,34,51,0.85)),  url("https://source.unsplash.com/5GwLlb-_UYk/1200");
   /* background-image: url('{{ imgurl  }}'); */
   /* Full height */
   background-repeat: no-repeat;
   /* background-attachment: fixed;*/
-  background-size: auto;
-  background-position: center; 
+  background-size: contain; 
+  background-position: top; 
   /* background-size: cover; */
 
   /*
@@ -70,9 +70,9 @@ footer {
   /* margin: 3em 0 0; */
   /* border-top: 1px solid #ccc; */
 
-  margin: 10;
-  padding: 10;
-  min-height: 90vh;
+  margin: 0;
+  padding: 0;
+  min-height: 0vh;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -110,6 +110,11 @@ p.note {
 p.smallcaps {
   font-size: 1.0em;
   font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+p.script {
+  font-size: 1.5em;
+  font-family: 'Pompiere', cursive;
 }
 
 p {
@@ -280,7 +285,7 @@ img {
   <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
   <label for="themeSwitch" class="theme-switch__label">                         
     <span></span>
-  </label-->
+  <</label-->
   <main>
   <center>
   <!--img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" /-->
@@ -289,6 +294,11 @@ img {
   </center>
   <footer>
     <center>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
     <p class="smallcaps">
     <a href="/">
     <b>
@@ -300,8 +310,6 @@ img {
     </b>
     </a>
     </p>
-    <br/>
-    <br/>
     <p class='tiny'>
       <a href="mailto:hey@{{ pkg.description }}" target="_blank">hey@{{ pkg.description }}</a>
     </p>

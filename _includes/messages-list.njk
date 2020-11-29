@@ -1,0 +1,13 @@
+---
+layout: messages-list-default.njk
+---
+
+<center>
+{%- for message in collections.messages | reverse -%}
+    <p class="smallcaps"><span class='noteTitle'>
+      <a href="{{ message.url }}" >{{ message.data.title or message.fileSlug | replace("-", " ") }}</a>
+    </span></p>
+    <p class="teeny">{{ message.date }}</p>
+    <p class="tiny">{{ message.data.note  }}</p>
+{% endfor %}
+</center>

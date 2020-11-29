@@ -1,0 +1,315 @@
+<html>
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pompiere|Open+Sans|Alegreya+Sans+SC|Architects+Daughter|Barlow+Condensed|Caveat|Inconsolata|Montserrat|Overlock&display=swap" rel="stylesheet">
+<title>{{ title or pkg.name }}</title>
+<style>
+body {
+  background-image: linear-gradient(rgba(17,34,51,0.62),rgba(17,34,51,0.85)),  url("{{ imgurl }}");
+  /* background-image: url('{{ imgurl  }}'); */
+  /* Full height */
+  background-repeat: no-repeat;
+  /* background-attachment: fixed;*/
+  background-size: auto;
+  background-position: center; 
+  /* background-size: cover; */
+
+  /*
+  margin: 0;
+  padding: 0;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  */
+  font-family: 'Pompiere', cursive;
+  /* font-family: 'Alegreya Sans SC', sans-serif; */
+  /* font-family: 'Caveat', cursive; */
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Architects Daughter', cursive; */
+  /* font-family: 'Inconsolata', monospace; */
+  /* font-family: system-ui, sans-serif; */
+}
+
+/* style from: https://evuez.github.io/styles.css */
+
+:root {
+  /* --grey: #eaf2ef; */
+  --grey: #888;
+  --black: #050505;
+  --white: #fff;
+  --primary: #ff0077;
+  --secondary: #f7b2bd;
+}
+* {
+/*  margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
+}
+body {
+  background-color: var(--black);
+  color: var(--grey);
+/*  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.6rem; */
+}
+
+body > * {
+  /*
+  max-width: 22em;
+  */
+}
+
+footer {
+
+  /* margin: 3em 0 0; */
+  /* border-top: 1px solid #ccc; */
+
+  margin: 10;
+  padding: 10;
+  min-height: 90vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+blockquote {
+	font-size: 1.0rem;
+  color: #888;
+  border-left: .5rem solid #dfd2d5;
+  margin: 0.5rem 0;
+  padding: .25rem 0 .25rem 1rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3.7em;
+}
+
+p.teeny {
+  font-size: 0.5em;
+  font-family: 'Inconsolata', monospace;
+}
+
+p.tiny {
+  font-size: 0.6em;
+  font-family: 'Inconsolata', monospace;
+}
+
+p.note {
+  font-size: 2.2em;
+  font-family: 'Architects Daughter', cursive;
+  /* font-family: 'Montserrat', sans-serif; */
+}
+
+p.smallcaps {
+  font-size: 1.0em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+p {
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.noteTitle {
+  font-size: 1.5em
+}
+
+a:link {
+  /* font-size: 1.5em; */
+  color: #bbb;
+  text-decoration: none;
+            
+  }
+a:hover {
+  text-decoration: underline;
+      
+}
+
+
+/* theme switcher */
+/* https://codepen.io/michellebarker/pen/GzzrGJ */
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700");
+* {
+  box-sizing: border-box;
+}
+
+body {
+/*  font-family: Merriweather, serif; */
+}
+
+label,
+main {
+  color: var(--text, white);
+  /* background: var(--bg, white); */
+  /* color: var(--text, gray); */
+}
+
+main {
+  --gradDark: hsl(265, 1%, 3%);
+  --gradLight: hsl(265, 3%, 9%);
+  /*--gradDark: hsl(144, 100%, 89%);
+  --gradLight: hsl(42, 94%, 76%); */
+  /* from sophie.io */
+  /*--gradDark: hsl(265, 1%, 3%);
+  --gradLight: hsl(42, 94%, 76%);
+  --gradLight: hsl(265, 3%, 9%);
+  --gradDark: hsl(144, 100%, 89%);
+  --gradLight: hsl(42, 94%, 76%); */
+  /* background: linear-gradient(to bottom, var(--gradDark), var(--gradLight)); */
+  padding: 120px 40px 40px 40px;
+  min-height: 100vh;
+  text-align: left;
+}
+
+img {
+  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
+  display: block;
+  max-width:300;
+  width: 50%;
+  margin: auto;
+}
+.wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.theme-switch__input:checked ~ main,
+.theme-switch__input:checked ~ label {
+  --text: white;
+}
+
+.theme-switch__input:checked ~ main {
+  --gradDark: hsl(198, 24%, 11%);
+  --gradLight: hsl(198, 19%, 19%);
+}
+
+.theme-switch__input,
+.theme-switch__label {
+  position: absolute;
+  z-index: 1;
+}
+
+.theme-switch__input {
+  opacity: 0;
+}
+.theme-switch__input:hover + .theme-switch__label, .theme-switch__input:focus + .theme-switch__label {
+  background-color: lightSlateGray;
+}
+.theme-switch__input:hover + .theme-switch__label span::after, .theme-switch__input:focus + .theme-switch__label span::after {
+  background-color: #d4ebf2;
+}
+
+.theme-switch__label {
+  padding: 20px;
+  margin: 10px 30px 10px 35px;
+  transition: background-color 200ms ease-in-out;
+  width: 60px;
+  height: 40px;
+  border-radius: 50px;
+  text-align: center;
+  background-color: slateGray;
+  box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
+}
+.theme-switch__label::before, .theme-switch__label::after {
+  font-size: 2rem;
+  position: absolute;
+  transform: translate3d(0, -50%, 0);
+  top: 50%;
+}
+.theme-switch__label::before {
+  content: '\263C';
+  right: 100%;
+  margin-right: 1px;
+  color: orange;
+}
+.theme-switch__label::after {
+  content: '\263E';
+  left: 100%;
+  margin-left: 5px;
+  color: lightSlateGray;
+}
+.theme-switch__label span {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+}
+.theme-switch__label span::after {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  content: '';
+  border-radius: 50%;
+  background-color: lightBlue;
+  transition: transform 200ms, background-color 200ms;
+  box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+.theme-switch__input:checked ~ .theme-switch__label {
+  background-color: lightSlateGray;
+}
+.theme-switch__input:checked ~ .theme-switch__label::before {
+  color: lightSlateGray;
+}
+.theme-switch__input:checked ~ .theme-switch__label::after {
+  color: turquoise;
+}
+.theme-switch__input:checked ~ .theme-switch__label span::after {
+  transform: translate3d(20px, 0, 0);
+}
+
+
+</style>
+</head>
+
+<body>
+	<div class="page">
+	<div class="wrapper">
+	<!--Theme switch
+  <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+  <label for="themeSwitch" class="theme-switch__label">                         
+    <span></span>
+  </label-->
+  <main>
+  <center>
+  <!--img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" /-->
+  <!--h1><span style="font-weight:normal">{{ title or page.fileSlug | replace("-", " ") }}</span></h1-->
+  {{ content | safe }}
+  </center>
+  <footer>
+    <center>
+    <p class="smallcaps">
+    <a href="/">
+    <b>
+    <font color="#0085C7">&copy;</font>
+    <font color="#F4C300">2</font>
+    <font color="#000000">0</font>
+    <font color="#009F3D">2</font>
+    <font color="#DF0024">1</font>
+    </b>
+    </a>
+    </p>
+    <br/>
+    <br/>
+    <p class='tiny'>
+      <a href="mailto:hey@{{ pkg.description }}" target="_blank">hey@{{ pkg.description }}</a>
+    </p>
+    </center>
+   </footer>
+  </main>
+  </div>
+  </div>
+</body>
+
+</html>

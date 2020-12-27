@@ -1,7 +1,7 @@
 ---
 title: all
 layout: all.njk
-permalink: all/index.html
+permalink: gall/index.html
 ---
 
 

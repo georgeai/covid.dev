@@ -58,7 +58,8 @@ vi +7 $filename
 echo
 
 # site name = dir name
-site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
+#site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
+site=$(pwd | awk -F/ '{print $(NF-1)}')
 
 url="https://$site/messages/$dateDashedTitle"
 rel_url="/messages/$dateDashedTitle" # relative url -- works with any 1y site

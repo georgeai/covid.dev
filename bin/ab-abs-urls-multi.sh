@@ -81,7 +81,7 @@ echo
 
 #set -x
 #set +x
-press_base_dir="~/Downloads/src/press/1y"
+press_base_dir="/home/george/Downloads/src/press/1y"
 
 for to_sites_i in ${to_sites_list//,/ }
 do
@@ -112,13 +112,13 @@ do
   echo "---"
 
   echo
-  echo ">> rsync files $shorty_file_path ../$to_sites_i/"
+  echo ">> rsync files $shorty_file_path $press_base_dir/$to_sites_i/"
   echo
   
   #set -x
-  rsync -avP --relative $shorty_file_path ../$to_sites_i/
+  rsync -avP --relative $shorty_file_path $press_base_dir/$to_sites_i/
 
-  cd ../$to_sites_i 
+  cd $press_base_dir/$to_sites_i 
   echo
   echo ">> pwd git add begin: $(pwd)"
   git add $shorty_file_path
@@ -132,7 +132,7 @@ done
 #echo "From: $from_site/{$shorty}"
 #echo "To: {$to_sites}/{$shorty}"
 
-cd ../$to_sites_i 
+cd $press_base_dir/$to_sites_i 
 echo
 echo ">> pwd git commit and push begin: $(pwd)"
 echo

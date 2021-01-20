@@ -1,63 +1,58 @@
-# **1y**: taking the 1t out of 11ty 😅
+# **g1y**: 1y with other features 😅
 
 ## What is this?
 
-**1y** is a short URL manager built with [Eleventy](https://www.11ty.dev/) (a.k.a. **1**1t**y**), the great JavaScript/Node based Static Site Generator.
+**g1y** is a short URL manager built with [Eleventy](https://www.11ty.dev/) (a.k.a. **1**1t**y**), the great JavaScript/Node based Static Site Generator.
 
 This is not a URL "shortener", as it doesn't process anything. Short and long versions of URLs are managed manually, so that short URLs can be "beautiful".
 
+Also included are `/notes` (like blog posts), `/messages` with background images, and `/holidays` like `/messages`but for holidays and special occasions
+
 ## How does it work?
 
-**1y** generates redirection rules from your set of data, each URL being stored in a Markdown file:
-- the `fileSlug` of the Markdown file (the filename without the extension [in 11ty language](https://www.11ty.dev/docs/data/#page-variable-contents)) is the short URL. For example, the Markdown file `nho.md` you'll find in this template repository is used to create the [https://\<your-short-domain\>/**nho**](https://<your-short-domain>/nho) short URL.
-- the long URL is stored in the file's [Front Matter](https://www.11ty.dev/docs/data-frontmatter/), for example here the `nho.md` file only contains these 3 lines:
+**g1y** generates redirection rules from your set of data, each URL being stored in a Markdown file:
+- the `fileSlug` of the Markdown file (the filename without the extension [in 11ty language](https://www.11ty.dev/docs/data/#page-variable-contents)) is the short URL. For example, the Markdown file `pluto.md` you'll find in this template repository is used to create the [https://\<your-short-domain\>/**pluto**](https://<your-short-domain>/pluto) short URL.
+- the long URL is stored in the file's [Front Matter](https://www.11ty.dev/docs/data-frontmatter/), for example here the `pluto.md` file only contains these 3 lines:
     ```markdown
     ---
-    url: https://nicolas-hoizey.com/
+    url: https://en.wikipedia.org/wiki/Pluto
     ---
     ```
 
-So for this example, when you go to [https://\<your-short-domain\>/**nho**](https://<your-short-domain>/nho), it redirects you to <https://nicolas-hoizey.com/>.
+So for this example, when you go to [https://\<your-short-domain\>/**pluto**](https://<your-short-domain>/pluto), it redirects you to <https://en.wikipedia.org/wiki/Pluto>.
 
 Redirection rules are generated in 4 formats to ease usage on different environments:
 - Apache HTTP server with [Alias module](https://httpd.apache.org/docs/current/en/mod/mod_alias.html) in a `.htaccess` file
 - Apache HTTP server with [Rewrite module](https://httpd.apache.org/docs/current/en/mod/mod_rewrite.html) (less efficient) in the same `.htaccess` file
 - [Netlify](https://netlify.com/) hosting with [redirects](https://docs.netlify.com/routing/redirects/) in a `_redirects` file
-- HTML pages with both [HTML redirect](https://css-tricks.com/redirect-web-page/#article-header-id-1) (`<meta>` tag) and [JavaScript Redirect](https://css-tricks.com/redirect-web-page/#article-header-id-2). This is only meant as a last resort, only there if previous formats don't work. Your HTTP server needs to be able to respond to [https://\<your-short-domain\>/**nho**](https://<your-short-domain>/nho) with this actual ressource: [https://\<your-short-domain\>/**nho/index.html**](https://<your-short-domain>/nho/index.html)
+- HTML pages with both [HTML redirect](https://css-tricks.com/redirect-web-page/#article-header-id-1) (`<meta>` tag) and [JavaScript Redirect](https://css-tricks.com/redirect-web-page/#article-header-id-2). This is only meant as a last resort, only there if previous formats don't work. Your HTTP server needs to be able to respond to [https://\<your-short-domain\>/**pluto**](https://<your-short-domain>/pluto) with this actual resource: [https://\<your-short-domain\>/**pluto/index.html**](https://<your-short-domain>/pluto/index.html)
+- [Vercel](https://vercel.com/) also works -- not sure which one of the formats it's using.
 
 You don't have to deal with any settings to chose which one to use, all 4 formats are generated at once.
 
-## What do I have to do to use it?
+## README.md as blog
 
-This repository is intended to be used as a template for creating your own repository.
+Using the github.com or gitea self-hosted git repository, the README.md can also serve as the blog.
 
-### The easiest: use Netlify Deploy Button
+A script (`bin/ar-multi-readme.sh`) is included to add any notes using the relative url shortcut eg, `your-post` which points to a note eg, `/notes/2021-01-20-your-post.md` and  prepends the note(s) to README.md, which makes the github or gitea repo url a (poor man's) blog, with links to each of the included posts in the repo.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/nhoizey/1y&stack=cms)
+  ```bash
+  # prepend your-post, another-post, yet-another-post notes 
+  # to README.md and blog.md files which reside in repo root
+  # (although could be /another_dir/blog.md)
+  bin/ar-multi-readme.sh your-post,another-post,yet-another-post README.md,blog.md 
+  ```
 
-Clicking the button above will:
-- create a new repository in your own GitHub account with **1y** code
-- and deploy a copy of this new repository to your Netlify account (you can create an account during this process if you don't have one).
+Eventually will need a way to trim / cull the README.md
 
-Each time you push changes to your Github repository (or add files directly with Github's Web interface), Netlify will build the new redirection files.
+## Credits
 
-### If you want to use another hosting service: use the Github template
+Modified from https://github.com/nhoizey/1y
 
-1. Click the <kbd>Use this template</kbd> green button in Github interface to create your own **1y** repository in your Github account
-1. Clone or download the new repository to your local computer
-1. (optional) If you don't have `npm` yet, [install npm](https://www.npmjs.com/get-npm)
-1. Install **y1** dependencies with `npm install`
-1. Add new short URLs as Markdown files in the `urls/` folder
-1. Generate the redirection files with this command: `npm run build`
-
-Generated files to deploy are in the `_site` folder.
-
-## Contribution
-
-You are welcome and encouraged to make changes to this website by submitting pull requests!
+Kudos to 1y
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2020-present, Nicolas Hoizey
+Copyright (c) 2021-present

@@ -25,6 +25,8 @@ else
     read -p "Enter the shorty: " shorty
 fi
 
+notes_dir="notes"
+urls_dir="urls"
 
 #Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
 #Title=`echo $shorty | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
@@ -35,7 +37,8 @@ do
 done
 # create note file
 dateDashedTitle="`date +%Y-%m-%d`${dashedTitle}"
-filename=$dateDashedTitle".md"
+filename=$notes_dir/$dateDashedTitle".md"
+#filename=$dateDashedTitle".md"
 #filename="`date +%Y-%m-%d`${dashedTitle}.md"
 touch $filename
 echo "---" > $filename
@@ -62,7 +65,8 @@ echo
 
 # create url file
 shorty_filename="$shorty.md"
-urls_filename=../urls/$shorty_filename
+urls_filename=$urls_dir/$shorty_filename
+#urls_filename=../urls/$shorty_filename
 touch $urls_filename
 echo "---" > $urls_filename
 echo "url: ${rel_url}" >> $urls_filename

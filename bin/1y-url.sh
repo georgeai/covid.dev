@@ -18,8 +18,11 @@ else
     read -p "Enter the url: " url
 fi
 
+#notes_dir="notes"
+urls_dir="urls"
+
 # create url file
-filename="$shorty.md"
+filename="$urls_dir/$shorty.md"
 touch $filename
 echo "---" > $filename
 echo "url: ${url}" >> $filename

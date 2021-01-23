@@ -35,7 +35,8 @@ echo "" >> $filename
 # site name = dir name
 # site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
 # site=$(basename "`pwd`") -- works only in root directory and execting bin/
-site=$(pwd | awk -F/ '{print $(NF-1)}')
+# site=$(pwd | awk -F/ '{print $(NF-1)}')
+site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
 echo
 echo "site: $site"
 

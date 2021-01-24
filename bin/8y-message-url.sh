@@ -32,6 +32,8 @@ else
     read -p "Enter the shorty: " shorty
 fi
 
+notes_dir="messages"
+urls_dir="urls"
 
 #Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
 #Title=`echo $shorty | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
@@ -42,7 +44,7 @@ do
 done
 # create message file
 dateDashedTitle="`date +%Y-%m-%d`${dashedTitle}"
-filename=$dateDashedTitle".md"
+filename=$notes_dir/$dateDashedTitle".md"
 #filename="`date +%Y-%m-%d`${dashedTitle}.md"
 touch $filename
 echo "---" > $filename
@@ -59,10 +61,11 @@ echo
 
 # site name = dir name
 #site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
-site=$(pwd | awk -F/ '{print $(NF-1)}')
+#site=$(pwd | awk -F/ '{print $(NF-1)}')
+site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
 
-url="https://$site/messages/$dateDashedTitle"
-rel_url="/messages/$dateDashedTitle" # relative url -- works with any 1y site
+url="https://$site/$notes_dir/$dateDashedTitle"
+rel_url="/$notes_dir/$dateDashedTitle" # relative url -- works with any 1y site
 shorty_url="https://$site/$shorty"
 echo 
 echo $shorty_url" -> "$url
@@ -70,7 +73,7 @@ echo
 
 # create url file
 shorty_filename="$shorty.md"
-urls_filename=../urls/$shorty_filename
+urls_filename=$urls_dir/$shorty_filename
 touch $urls_filename
 echo "---" > $urls_filename
 echo "url: ${rel_url}" >> $urls_filename

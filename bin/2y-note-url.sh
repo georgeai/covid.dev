@@ -57,8 +57,8 @@ echo
 #site=$(pwd | awk -F/ '{print $(NF-1)}') 
 site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
 
-url="https://$site/notes/$dateDashedTitle"
-rel_url="/notes/$dateDashedTitle" # relative url -- works with any 1y site
+url="https://$site/$notes_dir/$dateDashedTitle"
+rel_url="/$notes_dir/$dateDashedTitle" # relative url -- works with any 1y site
 shorty_url="https://$site/$shorty"
 echo 
 echo $shorty_url" -> "$url

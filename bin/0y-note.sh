@@ -18,6 +18,9 @@ else
     read -p "Note: " note
 fi
 
+notes_dir="notes"
+#urls_dir="urls"
+
 #Title=`echo $shorty | tr -d '[:punct:]' | tr 'A-Z' 'a-z'`
 #Title=`echo $shorty | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
 Title=`echo $title | tr '[:punct:]' ' ' | awk '{$1=$1};1' | tr '[:blank:]' '-' | tr -s '-' | tr 'A-Z' 'a-z'`
@@ -27,7 +30,7 @@ do
 done
 # create note file
 dateDashedTitle="`date +%Y-%m-%d`${dashedTitle}"
-filename=$dateDashedTitle".md"
+filename=$notes_dir/$dateDashedTitle".md"
 touch $filename
 echo "---" >> $filename
 echo "title: ${title}" >> $filename
@@ -42,9 +45,10 @@ echo
 
 # site name = dir name
 #site="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd | sed 's#.*/##')"
-site=$(pwd | awk -F/ '{print $(NF-1)}')
+#site=$(pwd | awk -F/ '{print $(NF-1)}')
+site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
 
-url="https://$site/notes/$dateDashedTitle"
+url="https://$site/$notes_dir/$dateDashedTitle"
 #shorty_url="https://"$site"/"$shorty
 echo 
 echo $url

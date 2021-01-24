@@ -78,16 +78,16 @@ do
   echo "<< $to_sites_i >>"
   echo "---"
   echo
-  echo ">> rsync files from $to_sites_i to $dest/{urls,notes}"
+  echo "> rsync files from $to_sites_i to $dest/{urls,notes}"
   echo
   cd $src_site_path
-  rsync -avP --relative {notes,urls} $dest_site_path
+  rsync -avP --relative {notes/*.md,urls/*.md} $dest_site_path
   echo
-  echo ">> pwd git add begin: $(pwd)"
+  echo "> pwd git add begin: $(pwd)"
   cd $dest_site_path
   git add notes/ urls/
   echo
-  echo ">> pwd git add end: $(pwd)"
+  echo "> pwd git add end: $(pwd)"
 done
 
 #echo "From: $from_site/{$shorty}"
@@ -95,11 +95,11 @@ done
 
 cd $dest_site_path
 echo
-echo ">> pwd git commit and push begin: $(pwd)"
+echo "> pwd git commit and push begin: $(pwd)"
 echo
 git commit -m "From: {$src_list}/{notes,urls} / To: {$dest}/{notes,urls}"
 git push -u origin master
 echo
-echo ">> pwd git commit and push end: $(pwd)"
+echo "> pwd git commit and push end: $(pwd)"
 
 

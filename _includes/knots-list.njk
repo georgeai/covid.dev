@@ -1,0 +1,13 @@
+---
+layout: knots-list-default.njk
+---
+
+<center>
+{%- for knot in collections.knots | reverse -%}
+    <p class="smallcaps"><span class='noteTitle'>
+      <a href="{{ knot.url }}" >{{ knot.data.title or knot.fileSlug | replace("-", " ") }}</a>
+    </span></p>
+    <p class="teeny">{{ knot.date }}</p>
+    <p class="tiny">{{ knot.data.note  }}</p>
+{% endfor %}
+</center>

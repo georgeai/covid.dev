@@ -1,0 +1,5 @@
+{
+  "tags": "knots",
+  "layout": "knots-knot.njk",
+  "permalink": "knots/{{ page.date | date: '%Y-%m-%d' }}-{{ page.fileSlug }}/"
+}

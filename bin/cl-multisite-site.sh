@@ -74,12 +74,14 @@ echo
 #set +x
 #press_base_dir="/home/george/Downloads/src/press/1y"
 press_base_dir=".."
+#dest_base_dir="/home/george/Downloads/src/press/1y"
+dest_base_dir=".."
 
 for to_sites_i in ${src_list//,/ }
 do
 
   src_site_path=$press_base_dir/$to_sites_i
-  dest_site_path=$press_base_dir/$dest
+  dest_site_path=$dest_base_dir/$dest
   echo
   echo "<< $to_sites_i >>"
   echo "---"

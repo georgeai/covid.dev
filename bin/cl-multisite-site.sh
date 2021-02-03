@@ -1,8 +1,10 @@
 #!/bin/bash
 
 # Publish immediately -- no [skip ci]                                
-# clone posts from one or more sites to current site 
-# from_site: receives all post from to_sites
+# clone all urls, notes, knots from one or more sites to current site 
+# from_site: receives all post from to_sites (one or more)
+
+# May not work with symlinked site because uses rsync --relative
 
 # works with and without curly braces around sites
 # bin/cl-multisite-site.sh '{pega.sus.codes,libra.waif.dev,san.jiao.ai,swerve.veer.fun}'
@@ -11,6 +13,10 @@
 # works with filenames with path `urls/lucky-six-eve.md`
 
 # short url manager: https://github.com/nhoizey/1y
+
+## ! SRC and DEST are reversed
+## DEST = from_site
+## SRC = to_sites
 
 # from_site name = dir name
 from_site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
@@ -81,11 +87,12 @@ do
   echo "> rsync files from $to_sites_i to $dest/{urls,notes}"
   echo
   cd $src_site_path
-  rsync -avP --relative {notes/*.md,urls/*.md} $dest_site_path
+  rsync -avP --relative {notes/*.md,urls/*.md,knots/*.md} $dest_site_path
+  #rsync -avP --relative {notes/*.md,urls/*.md,knots/*.md,messages/*.md,holidays/*.md} $dest_site_path
   echo
   echo "> pwd git add begin: $(pwd)"
   cd $dest_site_path
-  git add notes/ urls/
+  git add notes/ urls/ knots/
   echo
   echo "> pwd git add end: $(pwd)"
 done
@@ -97,7 +104,7 @@ cd $dest_site_path
 echo
 echo "> pwd git commit and push begin: $(pwd)"
 echo
-git commit -m "From: {$src_list}/{notes,urls} / To: {$dest}/{notes,urls}"
+git commit -m "From: {$src_list}/{notes,urls,knots} / To: {$dest}/{notes,urls,knots}"
 git push -u origin master
 echo
 echo "> pwd git commit and push end: $(pwd)"

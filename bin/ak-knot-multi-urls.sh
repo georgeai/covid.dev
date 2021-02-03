@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Publish immediately -- no [skip ci]                                
-# multi shorty -> multi group (group of urls)
+# multi shorty -> knot (collection of urls)
 
 # works with and without curly braces around short and sites
-# ./ag-group-multi-urls.sh '{urls/lucky-six-eve.md,urls/soaring-stars.md,urls/finite-friday.md}' '{pega.sus.codes,libra.waif.dev,san.jiao.ai,swerve.veer.fun}'
+# ./ak-knot-multi-urls.sh <title> <note> <url> '{urls/lucky-six-eve.md,urls/soaring-stars.md,urls/finite-friday.md}' 
 
 # works with shorty names `lucky-six-eve` 
 # works with filenames with path `urls/lucky-six-eve.md`

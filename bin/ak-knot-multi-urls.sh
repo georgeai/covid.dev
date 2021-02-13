@@ -47,20 +47,21 @@ fi
 
 if [ -n "$5" ]
 then
-    imgurl=$5
+    bgimg=$5
 else
-    imgurl="https://source.unsplash.com/random/1000/?"
+    bgimg=""
 fi
 
 #if [[ $imgurl == random* ]] ; # if random, then use unsplash as background
 #if [[ $imgurl == none* ]] ; # if not none, then use unsplash as background
-#then 
-#  imgurl=""
-#else # else no background image
-#  imgurl="https://source.unsplash.com/random/1000/?"
-#  # can't get the replace to work -- replaces quotes to html &quot
-#  #imgurl="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace('-'', ','') }}"
-#fi
+if [[ $imgurl == http* ]] ; # use image url
+then 
+  imgurl=$bgimg
+else # else use $bgimg=$5 keyword for unsplash; if $bgimg="" then random
+  imgurl="https://source.unsplash.com/random/1000/?$bgimg"
+  # can't get the replace to work -- replaces quotes to html &quot
+  #imgurl="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace('-'', ','') }}"
+fi
 
 # remove curly braces if exists
 shorty_file_list=$(echo "$shorty_files" | sed 's/[{}]//g')

@@ -124,7 +124,7 @@ cd $press_base_dir/$to_sites_i
 echo
 echo ">> pwd git commit and push begin: $(pwd)"
 echo
-git commit -m "From: $from_site/{$shorty} / To: {$to_sites}/{$shorty}"
+git commit -m "From: $from_site/{$shorty} / To: {$to_sites}/{$shorty} [skip ci]"
 git push -u origin master
 #cd ../$from_site
 cd $from_site_pwd

@@ -126,6 +126,14 @@ do
   #sed -i.old -e "1i## $note_file_path" -e "1r$note_file_path" -e '1{h;d}' -e '2{x;G}' $to_sites_i
   #sed -i.old -e "1i## :bookmark:" -e "1i \`$note_file_path\`" -e "1r$note_file_path" -e '1{h;d}' -e '2{x;G}' $to_sites_i
   #sed -i.old -e "1i### :bookmark: \`$note_file_path\`" -e "1r$note_file_path" -e '1{h;d}' -e '2{x;G}' $to_sites_i
+  if [ ! -f $to_sites_i ]; then # if file does not exist, create it
+    #touch $to_sites_i
+    echo "" > $to_sites_i
+    echo "---" > $to_sites_i
+    echo "Created: "$(date +'%Y-%m-%d_%H:%M:%S')  >> $to_sites_i
+    echo ">> $to_sites_i created: "$(date +'%Y-%m-%d_%H:%M:%S')
+    cat $to_sites_i
+  fi
   sed -i.old -e "1i#### :bookmark: [\`$note_file_path\`](/$git_username/$from_site/$git_branch_src/$note_file_path) / :nut_and_bolt: [[Raw](/$git_username/$from_site/$git_branch_raw/$note_file_path)]" -e "1r$note_file_path" -e '1{h;d}' -e '2{x;G}' $to_sites_i
 
   ##echo ">> rsync files $shorty_file_path $note_file_path $press_base_dir/$to_sites_i/"

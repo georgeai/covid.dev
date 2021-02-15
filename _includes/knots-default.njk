@@ -182,6 +182,23 @@ img {
   width: 50%;
   margin: auto;
 }
+
+img.logo {
+  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
+  display: block;
+  max-width:200;
+  width: 50%;
+  margin: auto;
+}
+
+img.qr {
+  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
+  display: block;
+  max-width:150;
+  width: 50%;
+  margin: auto;
+}
+
 .wrapper {
   max-width: 700px;
   margin: 0 auto;
@@ -307,6 +324,7 @@ img {
     </p>
     </center>
    </footer>
+   <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=17-34-51&data=https://{{ pkg.name }}{{ page.url }}"/>
   </main>
   </div>
   </div>

@@ -12,19 +12,11 @@ body {
   /* background-image: url('{{ imgurl  }}'); */
   /* Full height */
   background-repeat: no-repeat;
-  /* background-attachment: fixed;*/
+  background-attachment: fixed;
   background-size: auto;
-  /* background-position: top; */ 
   background-size: cover; 
+  background-position: top;
 
-  /*
-  margin: 0;
-  padding: 0;
-  min-height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  */
   /* font-family: 'Pompiere', cursive; */
   /* font-family: 'Alegreya Sans SC', sans-serif; */
   /* font-family: 'Caveat', cursive; */
@@ -44,27 +36,52 @@ body {
   --primary: #ff0077;
   --secondary: #f7b2bd;
 }
-* {
-/*  margin: 0;
-  padding: 0;
-  box-sizing: border-box; */
+html, body{
+  height: 99%; /* remove extra vert padding for small pages (no scroll) */
 }
 body {
   background-color: var(--black);
   color: var(--grey);
-/*  font-size: 14px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  line-height: 1.6rem; */
 }
 
-body > * {
-  /*
-  max-width: 22em;
-  */
+.wrapper {
+  flex: 1 0 auto;
 }
 
+.footer {
+  /* https://css-tricks.com/couple-takes-sticky-footer/ */
+  /* https://stackoverflow.com/questions/45205554/flexbox-to-align-content-in-footer */
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+
+  /* background: orange; */
+  width: 100%;
+  display: flex; 
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.red {
+/*background: green; */
+width: 30%;
+}
+.green {
+/* background: red; */
+width: 35%;
+}
+.blue{
+/* background: blue; */
+padding: 5 0;
+width: 35%
+display: flex; 
+justify-content: flex-end;
+align-items: flex-end;
+};
+
+/*
 footer {
 
   /* margin: 3em 0 0; */
@@ -77,6 +94,7 @@ footer {
   align-items: flex-end;
   justify-content: center;
 }
+*/
 
 blockquote {
 	font-size: 1.0rem;
@@ -154,6 +172,7 @@ body {
 label,
 main {
   color: var(--text, white);
+  text-align: center;
   /* background: var(--bg, white); */
   /* color: var(--text, gray); */
 }
@@ -172,145 +191,50 @@ main {
   /* background: linear-gradient(to bottom, var(--gradDark), var(--gradLight)); */
   padding: 40px 40px 40px 40px;
   /* min-height: 100vh; */
-  text-align: left;
 }
 
 img {
   /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
   display: block;
   max-width:300;
-  width: 50%;
+  /* width: 50%; */
   margin: auto;
 }
 
 img.logo {
-  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
-  display: block;
   max-width:200;
-  width: 50%;
   margin: auto;
 }
 
 img.qr {
-  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
-  display: block;
   max-width:150;
-  width: 50%;
-  margin: auto;
-}
-
-.wrapper {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.theme-switch__input:checked ~ main,
-.theme-switch__input:checked ~ label {
-  --text: white;
-}
-
-.theme-switch__input:checked ~ main {
-  --gradDark: hsl(198, 24%, 11%);
-  --gradLight: hsl(198, 19%, 19%);
-}
-
-.theme-switch__input,
-.theme-switch__label {
-  position: absolute;
-  z-index: 1;
-}
-
-.theme-switch__input {
-  opacity: 0;
-}
-.theme-switch__input:hover + .theme-switch__label, .theme-switch__input:focus + .theme-switch__label {
-  background-color: lightSlateGray;
-}
-.theme-switch__input:hover + .theme-switch__label span::after, .theme-switch__input:focus + .theme-switch__label span::after {
-  background-color: #d4ebf2;
-}
-
-.theme-switch__label {
-  padding: 20px;
-  margin: 10px 30px 10px 35px;
-  transition: background-color 200ms ease-in-out;
-  width: 60px;
-  height: 40px;
-  border-radius: 50px;
-  text-align: center;
-  background-color: slateGray;
-  box-shadow: -4px 4px 15px inset rgba(0, 0, 0, 0.4);
-}
-.theme-switch__label::before, .theme-switch__label::after {
-  font-size: 2rem;
-  position: absolute;
-  transform: translate3d(0, -50%, 0);
-  top: 50%;
-}
-.theme-switch__label::before {
-  content: '\263C';
-  right: 100%;
-  margin-right: 1px;
-  color: orange;
-}
-.theme-switch__label::after {
-  content: '\263E';
-  left: 100%;
-  margin-left: 5px;
-  color: lightSlateGray;
-}
-.theme-switch__label span {
-  position: absolute;
-  bottom: calc(100% + 10px);
-  left: 0;
   width: 100%;
 }
-.theme-switch__label span::after {
-  position: absolute;
-  top: calc(100% + 15px);
-  left: 5px;
-  width: 30px;
-  height: 30px;
-  content: '';
-  border-radius: 50%;
-  background-color: lightBlue;
-  transition: transform 200ms, background-color 200ms;
-  box-shadow: -3px 3px 8px rgba(0, 0, 0, 0.4);
-}
-
-.theme-switch__input:checked ~ .theme-switch__label {
-  background-color: lightSlateGray;
-}
-.theme-switch__input:checked ~ .theme-switch__label::before {
-  color: lightSlateGray;
-}
-.theme-switch__input:checked ~ .theme-switch__label::after {
-  color: turquoise;
-}
-.theme-switch__input:checked ~ .theme-switch__label span::after {
-  transform: translate3d(20px, 0, 0);
-}
-
 
 </style>
 </head>
 
+
 <body>
-	<div class="page">
 	<div class="wrapper">
+  <main>
 	<!--Theme switch
   <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
   <label for="themeSwitch" class="theme-switch__label">                         
     <span></span>
   </label-->
-  <main>
-  <center>
   <!--img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" /-->
   <!--h1><span style="font-weight:normal">{{ title or page.fileSlug | replace("-", " ") }}</span></h1-->
   {{ content | safe }}
-  </center>
-  <footer>
-    <center>
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="green"></div>
+    <div class="red">
+    </div>
+    <div class="blue">
+   <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=17-34-51&data=https://{{ pkg.name }}{{ page.url }}"/>
+    <br/>
     <p class="smallcaps">
     <a href="/">
     <b>
@@ -322,12 +246,9 @@ img.qr {
     </b>
     </a>
     </p>
-    </center>
+    <p class='tiny'>
+    </p>
+    </div>
    </footer>
-   <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=17-34-51&data=https://{{ pkg.name }}{{ page.url }}"/>
-  </main>
-  </div>
-  </div>
 </body>
-
 </html>

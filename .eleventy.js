@@ -7,6 +7,13 @@ module.exports = function(eleventyConfig) {
   /* FILTERS AND PLUGINS */
   // eleventyConfig.addPlugin(xmlPlugin)
   eleventyConfig.addPlugin(pluginSyntaxHighlight)
+  const highlighter = eleventyConfig.markdownHighlighter;
+  eleventyConfig.addMarkdownHighlighter((str, language) => {
+    if (language === "mermaid") {
+      return `<pre class="mermaid">${str}</pre>`;
+    }
+    return highlighter(str, language);
+  });
   // eleventyConfig.addFilter('nbsp', nbspFilter(2, 12))
 
   /* COLLECTIONS */

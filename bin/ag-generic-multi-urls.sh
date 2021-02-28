@@ -68,9 +68,9 @@ if [ -n "$6" ]
 then
     category=$6
 else
-    category="knots"
-    #category="messages"
+    category="messages"
     #category="diagrams"
+    #category="knots"
 fi
 
 # remove curly braces if exists

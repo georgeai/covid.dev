@@ -68,9 +68,10 @@ if [ -n "$6" ]
 then
     category=$6
 else
-    category="knots"
+    category="notes"
     #category="messages"
     #category="diagrams"
+    #category="knots"
 fi
 
 # remove curly braces if exists
@@ -141,14 +142,12 @@ echo "note: ${knot_note}" >> $filename
 echo "imgurl: ${imgurl}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
-echo "" >> $filename
 
 if [[ ! $category =~ ^(hippos) ]] ; # always include for any category for now
 then
   echo 
   echo "--- Diagram template"
   #echo "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous' /> " >> $filename
-  echo "" >> $filename
   echo "\`\`\`mermaid"  >> $filename
   echo "%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#ff0000'}}}%%" >> $filename
   echo "" >> $filename
@@ -159,6 +158,28 @@ then
   echo "" >> $filename
   echo "\`\`\`" >> $filename
   echo "" >> $filename
+
+  echo "# 0" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "# 1" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "# 2" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "# 3" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "# 4" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "" >> $filename
+  echo "# 5" >> $filename
   echo "" >> $filename
 fi
 
@@ -206,7 +227,7 @@ then
   done
 fi
 
-vi +7 $filename
+vi +19 $filename
 
 knot_site=$(pwd | awk -F/ '{print $(NF)}') # now launched from repo root
 knot_url="https://$knot_site/$notes_dir/$dateDashedTitle"

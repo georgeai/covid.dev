@@ -17,6 +17,7 @@ then
 else
     read -p "Note: " note
 fi
+knot_note=$note # make this compatible with genchart.sh
 
 if [ -n "$3" ]
 then

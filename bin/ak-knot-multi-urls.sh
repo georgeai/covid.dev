@@ -41,15 +41,7 @@ fi
 
 if [ -n "$4" ]
 then
-    shorty_files=$4
-else
-    shorty_files="NONE" # allow for no shortys
-    #read -p "URL list: " shorty_files
-fi
-
-if [ -n "$5" ]
-then
-    bgimg=$5
+    bgimg=$4
 else
     bgimg=""
 fi
@@ -62,6 +54,14 @@ elif [[ $bgimg =~ ^(random|Random|RANDOM)$ ]]; then
   imgurl="https://source.unsplash.com/random/1000/?"
 else
   imgurl="https://source.unsplash.com/random/1000/?$bgimg"
+fi
+
+if [ -n "$5" ]
+then
+    shorty_files=$5
+else
+    shorty_files="NONE" # allow for no shortys
+    #read -p "URL list: " shorty_files
 fi
 
 if [ -n "$6" ]

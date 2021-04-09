@@ -1,0 +1,257 @@
+<html>
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css' integrity='sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==' crossorigin='anonymous' />
+<link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Pompiere|Open+Sans|Alegreya+Sans+SC|Architects+Daughter|Barlow+Condensed|Caveat|Inconsolata|Montserrat|Overlock&display=swap" rel="stylesheet">
+<title>{{ title or pkg.name }}</title>
+<style>
+body {
+  background-image: linear-gradient(rgba(17,34,51,0.32),rgba(17,34,51,0.55)),  url("{{ imgurl }}");
+  /* background-image: url('{{ imgurl  }}'); */
+  /* Full height */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto 100%;
+  background-position: center;
+
+  /* font-family: 'Pompiere', cursive; */
+  /* font-family: 'Alegreya Sans SC', sans-serif; */
+  /* font-family: 'Caveat', cursive; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Architects Daughter', cursive; */
+  /* font-family: 'Inconsolata', monospace; */
+  /* font-family: system-ui, sans-serif; */
+}
+
+/* style from: https://evuez.github.io/styles.css */
+
+:root {
+  /* --grey: #eaf2ef; */
+  --grey: #888;
+  --black: #050505;
+  --white: #fff;
+  --primary: #ff0077;
+  --secondary: #f7b2bd;
+}
+html, body{
+  height: 99%; /* remove extra vert padding for small pages (no scroll) */
+}
+body {
+  background-color: var(--black);
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  flex: 1 0 auto;
+}
+
+.footer {
+  /* https://css-tricks.com/couple-takes-sticky-footer/ */
+  /* https://stackoverflow.com/questions/45205554/flexbox-to-align-content-in-footer */
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+
+  /* background: orange; */
+  width: 100%;
+  display: flex; 
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.red {
+/*background: green; */
+width: 30%;
+}
+.green {
+/* background: red; */
+width: 35%;
+}
+.blue{
+/* background: blue; */
+padding: 5 0;
+width: 35%
+display: flex; 
+justify-content: flex-end;
+align-items: flex-end;
+};
+
+/*
+footer {
+
+  /* margin: 3em 0 0; */
+  /* border-top: 1px solid #ccc; */
+
+  margin: 0;
+  padding: 0;
+  /* min-height: 90vh; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+*/
+
+blockquote {
+	font-size: 1.0rem;
+  color: #888;
+  border-left: .5rem solid #dfd2d5;
+  margin: 0.5rem 0;
+  padding: .25rem 0 .25rem 1rem;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.7em;
+}
+
+p.teeny {
+  font-size: 0.5em;
+  font-family: 'Inconsolata', monospace;
+}
+
+p.tiny {
+  font-size: 0.6em;
+  font-family: 'Inconsolata', monospace;
+}
+
+p.note {
+  font-size: 1.8em;
+  font-family: 'Architects Daughter', cursive;
+  /* font-family: 'Montserrat', sans-serif; */
+}
+
+p.smallcapsurl {
+  font-size: 1.6em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+p.smallcaps {
+  font-size: 1.0em;
+  font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+p {
+  font-size: 1.2em;
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Inconsolata', monospace;
+}
+
+.noteTitle {
+  font-size: 1.5em
+}
+
+a:link, a:visited {
+  /* font-size: 1.5em; */
+  color: #bbb;
+  text-decoration: none;
+            
+  }
+a:hover {
+  text-decoration: underline;
+      
+}
+
+
+/* theme switcher */
+/* https://codepen.io/michellebarker/pen/GzzrGJ */
+
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,400i,700");
+* {
+  box-sizing: border-box;
+}
+
+body {
+/*  font-family: Merriweather, serif; */
+}
+
+label,
+main {
+  color: var(--text, white);
+  text-align: left;
+  /* background: var(--bg, white); */
+  /* color: var(--text, gray); */
+}
+
+main {
+  --gradDark: hsl(265, 1%, 3%);
+  --gradLight: hsl(265, 3%, 9%);
+  /*--gradDark: hsl(144, 100%, 89%);
+  --gradLight: hsl(42, 94%, 76%); */
+  /* from sophie.io */
+  /*--gradDark: hsl(265, 1%, 3%);
+  --gradLight: hsl(42, 94%, 76%);
+  --gradLight: hsl(265, 3%, 9%);
+  --gradDark: hsl(144, 100%, 89%);
+  --gradLight: hsl(42, 94%, 76%); */
+  /* background: linear-gradient(to bottom, var(--gradDark), var(--gradLight)); */
+  padding: 40px 40px 40px 40px;
+  /* min-height: 100vh; */
+}
+
+img {
+  /* https://www.freecodecamp.org/news/how-to-center-an-image-in-css/ */
+  display: block;
+  max-width:300;
+  /* width: 50%; */
+  margin: auto;
+}
+
+img.logo {
+  max-width:200;
+  margin: auto;
+}
+
+img.qr {
+  max-width:150;
+  width: 100%;
+}
+
+</style>
+</head>
+
+
+<body>
+	<div class="wrapper">
+  <main>
+	<!--Theme switch
+  <input type="checkbox" id="themeSwitch" name="theme-switch" class="theme-switch__input" />
+  <label for="themeSwitch" class="theme-switch__label">                         
+    <span></span>
+  </label-->
+  <!--img width="200" src="https://source.unsplash.com/random/600/?{{ page.fileSlug | replace("-", ",") }}" /-->
+  <!--h1><span style="font-weight:normal">{{ title or page.fileSlug | replace("-", " ") }}</span></h1-->
+  {{ content | safe }}
+  </main>
+  </div>
+  <footer class="footer">
+    <div class="green"></div>
+    <div class="red">
+    </div>
+    <div class="blue">
+   <img class="qr" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&bgcolor=17-34-51&data=https://{{ pkg.name }}{{ page.url }}"/>
+    <br/>
+    <p class="smallcaps">
+    <a href="/">
+    <b>
+    <font color="#0085C7">&copy;</font>
+    <font color="#F4C300">2</font>
+    <font color="#000000">0</font>
+    <font color="#009F3D">2</font>
+    <font color="#DF0024">1</font>
+    </b>
+    </a>
+    </p>
+    <p class='tiny'>
+    </p>
+    </div>
+   </footer>
+</body>
+</html>

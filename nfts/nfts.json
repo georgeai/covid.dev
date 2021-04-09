@@ -1,0 +1,5 @@
+{
+  "tags": "nfts",
+  "layout": "nfts-nft.njk",
+  "permalink": "nfts/{{ page.date | date: '%Y-%m-%d' }}-{{ page.fileSlug }}/"
+}

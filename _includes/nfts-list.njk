@@ -1,0 +1,13 @@
+---
+layout: nfts-list-default.njk
+---
+
+<center>
+{%- for nft in collections.nfts | reverse -%}
+    <p class="smallcaps"><span class='noteTitle'>
+      <a href="{{ nft.url }}" >{{ nft.data.title or nft.fileSlug | replace("-", " ") }}</a>
+    </span></p>
+    <p class="teeny">{{ nft.date }}</p>
+    <p class="tiny">{{ nft.data.note  }}</p>
+{% endfor %}
+</center>

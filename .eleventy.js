@@ -1,6 +1,7 @@
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight')
 const embedTikTok = require("eleventy-plugin-embed-tiktok");
 
+const embedYouTube = require("eleventy-plugin-youtube-embed");
 // const htmlmin = require('html-minifier')
 // const xmlPlugin = require('eleventy-xml-plugin')
 // const nbspFilter = require('eleventy-nbsp-filter')
@@ -9,6 +10,7 @@ module.exports = function(eleventyConfig) {
   /* FILTERS AND PLUGINS */
   // eleventyConfig.addPlugin(xmlPlugin)
   eleventyConfig.addPlugin(embedTikTok);
+  eleventyConfig.addPlugin(embedYouTube);
   eleventyConfig.addPlugin(pluginSyntaxHighlight)
   const highlighter = eleventyConfig.markdownHighlighter;
   eleventyConfig.addMarkdownHighlighter((str, language) => {
